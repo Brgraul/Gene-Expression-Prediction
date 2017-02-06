@@ -5,6 +5,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.cross_validation import train_test_split, cross_val_score
 from sklearn.metrics import accuracy_score
 import itertools
+from generate_submission import generate_submission
 
 print "Loading data"
 x_train_raw = np.load("data/x_train.npy")
@@ -25,8 +26,4 @@ clf.fit(x_train, y_train)
 # Only take the probability of the gene being active.
 predictions = clf.predict_proba(x_test)[:,1].ravel()
 
-fp = open("prediction.csv", "w")
-fp.write("GeneId,Prediction\n")
-for idx, prediction in enumerate(predictions):
-    fp.write("%i,%f\n" % ((idx + 1), prediction))
-fp.close()
+generate_submission(predictions)
