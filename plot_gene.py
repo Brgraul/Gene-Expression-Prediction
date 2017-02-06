@@ -13,5 +13,6 @@ y_train = y_train_raw[:, 1:].ravel()
 x_test = np.split(x_test_raw[:, 1:], x_test_raw.shape[0] / 100)
 
 def plot_gene(i):
-    print y_train[i]
+    plt.title(y_train[i])
+    plt.ylim(0, 100)
     plt.plot(x_train[i])
