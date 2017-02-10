@@ -2,7 +2,8 @@
 
 import numpy as np
 from sklearn.linear_model import LogisticRegression
-from sklearn.cross_validation import train_test_split, cross_val_score
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.cross_validation import cross_val_score
 from sklearn.metrics import accuracy_score
 import itertools
 
